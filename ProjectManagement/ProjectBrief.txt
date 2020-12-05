@@ -1,0 +1,5 @@
+
+Twillio SMS Capture Project Brief
+=================================
+
+The purpose of this project is to create a webservice that prints out last SMS message received on a Twillio account.
