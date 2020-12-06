@@ -1,7 +1,0 @@
-
-Roadmap
-=======
-
-[ ] Play with the Twillio library from Python to see how difficult the task is and to get familiar with the API
-[ ] Make the API keys private - put them in a file that's hidden in .gitignore
-[ ] Migrate the code to PHP

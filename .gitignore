@@ -139,3 +139,6 @@ cython_debug/
 
 # API Keys 
 */config.py
+
+# Python local testing
+PythonLocal
