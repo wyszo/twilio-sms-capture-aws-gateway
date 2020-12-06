@@ -2,12 +2,12 @@
 Twilio SMS Capture (using AWS Gateway)
 ======================================
 
-##Problem
+## Problem
 
 - Mobile apps build using AWS Mobile Services often require SMS OTP to log in into existing account from a new device
 - For mobile app Testflight Apple approval, you often need to provide existing account credentials, so that the Apple reviewer can log in into the app 
 
-##Solutions: 
+## Solutions
 
 There are a few solutions to this problem: 
 
