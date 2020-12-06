@@ -33,3 +33,40 @@ This is not difficult and has been proven to work with Apple review process. It 
 Solution overview
 -----------------
 
+1. Create a Twilio phone number 
+2. Create an AWS Lambda function that takes in the SMS message incoming from Twilio, parses it and stores the value in dynamoDB
+3. Create an AWS API Gateway for that lambda: a POST Rest API endpoint 
+4. Configure the endpoint to receive incoming data as XML (from Twilio) and convert it to json
+5. Return an XML response for Twilio from the lambda 
+6. Create a dynamoDB table for that lambda to write the captured text message to 
+7. Setup the API Gateway POST endpoint as an incoming message Webhook on Twilio 
+8. Write a new AWS Lambda that reads the value from dynamoDB, wraps it in a json and returns it 
+9. Put that new Lambda behind a GET endpoint of the API Gateway 
+
+At the end of this process you should have a publicly available endpoint that you can hit in your browser and you'll see the last text message received by the connected virtual phone number.
+
+Detailed instructions
+---------------------
+
+It should take less than an hour to follow the instructions below and get up and running. 
+
+1. 
+Follow the tutorial below for a basic AWS lambda and API Gateway setup for a Twilio account:
+
+[A detailed tutorial on how to reply to messages in Python with AWS Lambda](https://www.twilio.com/docs/sms/tutorials/how-to-receive-and-reply-python-amazon-lambda)
+
+2. 
+Use the code from `reply_messages_lambda.py` in this repository for the POST endpoint. 
+
+4. 
+Manually create a table `TwilioMessages` in dynamoDB.
+
+4. 
+Create a GET API gateway (with default configuration) using `get_last_code_lambda.py`. Make sure the authentication on that API Gateway is set to 'None', so that it's accessible online. 
+
+5. 
+Deploy the API. Send a text message to the Twilio account number and go the the API Gateway GET endpoint url in your browser. Verify that the text message you just send was returned.
+
+6. 
+If the Get API endpoint does not display the code, use AWS Cloudwatch to see the lambda error and debug the problem. 
+:

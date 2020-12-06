@@ -1,5 +1,5 @@
 
-Twillio SMS Capture Project Brief
-=================================
+Twilio SMS Capture (with AWS Lambda) Project Brief
+==================================================
 
-Create a webservice that prints out last SMS message received on a phone number (managed by Twilio).
+Create a webservice (using Amazon Web Services) that prints out last SMS message received on a phone number (managed by Twilio).
