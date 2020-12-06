@@ -1,6 +1,6 @@
 
-Twilio SMS Capture
-==================
+Twilio SMS Capture (using AWS Gateway)
+======================================
 
 Problem:
 - Mobile apps build using AWS Mobile Services often require SMS OTP to log in into existing account from a new device
@@ -50,23 +50,16 @@ Detailed instructions
 
 It should take less than an hour to follow the instructions below and get up and running. 
 
-1. 
-Follow the tutorial below for a basic AWS lambda and API Gateway setup for a Twilio account:
+1. Follow the tutorial below for a basic AWS lambda and API Gateway setup for a Twilio account:
 
 [A detailed tutorial on how to reply to messages in Python with AWS Lambda](https://www.twilio.com/docs/sms/tutorials/how-to-receive-and-reply-python-amazon-lambda)
 
-2. 
-Use the code from `reply_messages_lambda.py` in this repository for the POST endpoint. 
+2. Use the code from `reply_messages_lambda.py` in this repository for the POST endpoint. 
 
-4. 
-Manually create a table `TwilioMessages` in dynamoDB.
+3. Manually create a table `TwilioMessages` in dynamoDB.
 
-4. 
-Create a GET API gateway (with default configuration) using `get_last_code_lambda.py`. Make sure the authentication on that API Gateway is set to 'None', so that it's accessible online. 
+4. Create a GET API gateway (with default configuration) using `get_last_code_lambda.py`. Make sure the authentication on that API Gateway is set to 'None', so that it's accessible online. 
 
-5. 
-Deploy the API. Send a text message to the Twilio account number and go the the API Gateway GET endpoint url in your browser. Verify that the text message you just send was returned.
+5. Deploy the API. Send a text message to the Twilio account number and go the the API Gateway GET endpoint url in your browser. Verify that the text message you just send was returned.
 
-6. 
-If the Get API endpoint does not display the code, use AWS Cloudwatch to see the lambda error and debug the problem. 
-:
+6. If the Get API endpoint does not display the code, use AWS Cloudwatch to see the lambda error and debug the problem. 
