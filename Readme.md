@@ -1,6 +1,8 @@
 
-Twilio SMS Capture (using AWS Gateway)
-======================================
+[DEPRECATED!!!] Twilio SMS Capture (using AWS Gateway) 
+======================================================
+
+**REPOSITORY DEPRECATED!!! See section 4.1!!**
 
 ## Problem
 
@@ -39,6 +41,10 @@ This is not difficult and has been proven to work with Apple review process. It 
 
 [Discussion on Apple forums](https://developer.apple.com/forums/thread/125961)
 
+#### 4.1. UPDATE: 
+**This didn't actually work! AWS refuses to send the OTP code to a Twilio-managed phone numer!!
+The solution still allows to expose last SMS from a Twilio-managed number under an API Gateway, but is not fig for purpose (you can't read AWS OTPs, since they don't get send by AWS Cognito. I've not tested with a custom SMS sender lambda, not sure if that'd work). 
+The solution we ended up implementing was to let users whitelisted as apple reviewer accounts sign in without returning an OTP (using a custom login lambda).**
 
 ## Solution overview
 
